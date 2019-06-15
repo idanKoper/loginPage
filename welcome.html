@@ -1,0 +1,63 @@
+<html>
+<head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+<title>Welcome Form </title>
+</head>
+
+<body class="container box" >
+    <div class="form-group">
+     
+     <table cellpadding = "5" cellspacing="10" align = "center">
+            <tr><th> <h3>Choose your search engine:</h3></th></tr>
+            <tr><td><input type="radio" name="searchEngine" checked value="Google"> Google</td></tr>           
+            <tr><td><input type="radio" name="searchEngine" value="Yahoo"> Yahoo </td></tr>  
+            <tr><td><input type="radio" name="searchEngine" value="Bing"> Bing </td></tr>
+            <tr><th><label>Enter text here:</label></th></tr>
+            <tr><th><input name="googleSearch" type="text" class="form-control" id="googleSearch" placeholder=""></th></tr>
+        </tr>
+    </table>
+    <table class="button-table" cellpadding = "5" cellspacing="10" align = "center">
+            <tr><th><input id="submit" type="submit" name="login" value="Search" class="btn btn-primary" onclick="check();"></input></th>
+            <th><input id="submit" type="submit" name="backButton" value="Back" class="btn btn-primary" onclick="back();"></input></th>
+            </tr>
+    </table>
+
+    <iframe width = "100%" height= "600" class = "engine-frame" id ="searchEngine" frameborder = "0" allowTransparency = "true" src=""></iframe>
+    
+                
+    </div>
+    
+    <script>
+        function check(){
+            var input = document.getElementsByName("googleSearch")[0].value;
+            var searchEngine = document.querySelector('input[name="searchEngine"]:checked').value;
+            switch (searchEngine){
+            case "Google":{
+                var irl = 'https://www.google.com/search?igu=1&q='+input;
+                console.log(irl);
+                document.getElementById("searchEngine").src='https://www.google.com/search?igu=1&q='+input;
+            break;
+            }
+            case "Yahoo": {
+                document.getElementById("searchEngine").src='https://www.yahoo.com/search?igu=1&q='+input;
+            break;
+            }
+            default: {
+                document.getElementById("searchEngine").src='https://www.bing.com/search?igu=1&q='+input;
+            }
+            }
+                
+        }
+        function back()
+        {
+            window.location= "index.php";
+        }
+
+    </script>
+</body>
+
+</html>
